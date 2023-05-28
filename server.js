@@ -5,17 +5,17 @@ const bodyParser = require('body-parser');
 const { Utilisateur } = require('./models');
 const inscriptionRoutes = require('./routes/inscription');
 const connexionRoutes = require('./routes/connexion');
+const sequelize = require('./models/index').sequelize; // Importer l'instance Sequelize
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
 // Utiliser les routes
-app.use('/api', inscriptionRoutes);
-app.use('/api', connexionRoutes);
+app.use('/', inscriptionRoutes);
+app.use('/', connexionRoutes);
 
 // Configuration de Sequelize
-const sequelize = require('./config/database');
 sequelize
   .authenticate()
   .then(() => {
