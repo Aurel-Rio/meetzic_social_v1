@@ -1,11 +1,12 @@
 const express = require('express');
-const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { Utilisateur } = require('./models');
-const inscriptionRoutes = require('./routes/inscription');
-const connexionRoutes = require('./routes/connexion');
-const sequelize = require('./models/index').sequelize; // Importer l'instance Sequelize
+const inscriptionRoutes = require('./routes/api/inscription');
+const connexionRoutes = require('./routes/api/connexion');
+const sequelize = require('./models/index').sequelize;
+
+const app = express();
 
 // Middleware
 app.use(cors());
