@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 app.use('/', inscriptionRoutes);
 app.use('/', connexionRoutes);
 
+
 // Configuration de Sequelize
 sequelize
   .authenticate()
@@ -40,3 +41,5 @@ const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Le serveur est en écoute sur le port ${port}`);
 });
+
+
