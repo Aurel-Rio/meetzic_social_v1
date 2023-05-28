@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { Utilisateur } = require('../../models');
+const { Utilisateur } =  require('../../models');
+
+router.get('/inscription', (req, res) => {
+  // Afficher le formulaire d'inscription
+  res.send('Formulaire d\'inscription');
+});
 
 router.post('/inscription', async (req, res) => {
   const { nom, email, motDePasse } = req.body;
@@ -21,3 +26,4 @@ router.post('/inscription', async (req, res) => {
 });
 
 module.exports = router;
+

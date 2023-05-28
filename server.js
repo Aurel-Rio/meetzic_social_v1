@@ -1,12 +1,10 @@
 const express = require('express');
+const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const { Utilisateur } = require('./models');
 const inscriptionRoutes = require('./routes/api/inscription');
 const connexionRoutes = require('./routes/api/connexion');
-const sequelize = require('./models/index').sequelize;
-
-const app = express();
+const sequelize = require('./models').sequelize;
 
 // Middleware
 app.use(cors());
@@ -15,7 +13,6 @@ app.use(bodyParser.json());
 // Utiliser les routes
 app.use('/', inscriptionRoutes);
 app.use('/', connexionRoutes);
-
 
 // Configuration de Sequelize
 sequelize
@@ -41,5 +38,3 @@ const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Le serveur est en écoute sur le port ${port}`);
 });
-
-
